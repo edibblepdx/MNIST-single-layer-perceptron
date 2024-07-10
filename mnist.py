@@ -62,7 +62,7 @@ class Perceptron:
 			test_accuracy = self.evaluate(x_test, y_test)
 			test_accuracies.append(test_accuracy)
 
-			print(f'Epoch {epoch}	: Correct Train {num_correct} : Accuracy Train {train_accuracy:.4f} : Accuracy Test {test_accuracy:.4f}')
+			print(f'Epoch {epoch} : Correct Train {num_correct} : Accuracy Train {train_accuracy:.4f} : Accuracy Test {test_accuracy:.4f}')
 
 			if abs(train_accuracy - previous_accuracy) < tolerance:
 				break
@@ -147,8 +147,8 @@ if __name__ == '__main__':
 	epochs = args.epochs if args.epochs is not None else 70
 	tolerance = args.tolerance if args.tolerance is not None else 0.01
 	"""
-	learning_rate = 0.001
-	epochs = 70
-	tolerance = 0.001
+	learning_rate = 0.1
+	epochs = 20
+	tolerance = 0.0
 	
 	sys.exit(main(learning_rate, epochs, tolerance))
