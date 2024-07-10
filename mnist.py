@@ -113,10 +113,16 @@ def main(learning_rate, epochs, tolerance) -> int:
 	perceptron = Perceptron(learning_rate=learning_rate)
 
 	train_accuracies, test_accuracies = perceptron.train(x_train, y_train, x_test, y_test, epochs=epochs, tolerance=tolerance)
+
+	# plot
+	max_ticks = 10 # max ticks on x axis
+	step = max(1, len(train_accuracies) // max_ticks)
+	ticks = range(0, len(train_accuracies), step)
+
 	plt.plot(range(len(train_accuracies)), train_accuracies, label='train')
 	plt.plot(range(len(test_accuracies)), test_accuracies, label='test')
 	plt.ylim(0, 1)
-	plt.xticks(range(len(train_accuracies)), range(len(train_accuracies)))
+	plt.xticks(ticks, ticks)
 	plt.xlabel('Epochs')
 	plt.ylabel('Accuracy')
 	plt.title(f'Perceptron Learning Accuracy (η={learning_rate})')
@@ -147,8 +153,8 @@ if __name__ == '__main__':
 	epochs = args.epochs if args.epochs is not None else 70
 	tolerance = args.tolerance if args.tolerance is not None else 0.01
 	"""
-	learning_rate = 0.1
-	epochs = 20
-	tolerance = 0.0
+	learning_rate = 0.01
+	epochs = 70
+	tolerance = 0.001
 	
 	sys.exit(main(learning_rate, epochs, tolerance))
