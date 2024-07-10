@@ -120,7 +120,7 @@ def main(learning_rate, epochs, tolerance) -> int:
 	plt.xlabel('Epochs')
 	plt.ylabel('Accuracy')
 	plt.title(f'Perceptron Learning Accuracy (η={learning_rate})')
-	plt.legend()
+	plt.legend(loc='upper left')
 	plt.show()
 
 	# save perceptron training weights
@@ -130,6 +130,7 @@ def main(learning_rate, epochs, tolerance) -> int:
 	cm = perceptron.confusion_matrix(x_test, y_test)
 	display = ConfusionMatrixDisplay(confusion_matrix=cm)
 	display.plot()
+	plt.title(f'Perceptron Confusion Matrix on Test Set (η={learning_rate})')
 	plt.show()
 
 	return 0
@@ -146,8 +147,8 @@ if __name__ == '__main__':
 	epochs = args.epochs if args.epochs is not None else 70
 	tolerance = args.tolerance if args.tolerance is not None else 0.01
 	"""
-	learning_rate = 0.0001
+	learning_rate = 0.001
 	epochs = 70
-	tolerance = 0.01
+	tolerance = 0.001
 	
 	sys.exit(main(learning_rate, epochs, tolerance))
