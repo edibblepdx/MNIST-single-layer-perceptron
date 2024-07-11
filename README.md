@@ -4,7 +4,7 @@
   This is a single layer perceptron with 785 inputs (including bias=1) and 10 outputs that correspond to digits(0-9).
   The inputs are a flattened 28x28 matrix of colors valued 0 to 255, scaled down to be between 0 and 1. Initial 
   weights are chosen randomly with mean 0 and standard deviation 0.5. It should be easy to change the learning rate,
-  max epochs, and tolerance at which to prematurely stop training in the code, below the name guard. 
+  max epochs, and tolerance at which to prematurely stop training, in the code below the name guard. 
 </p>
 
 <p>
